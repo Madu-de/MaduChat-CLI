@@ -19,6 +19,6 @@ I created this CLI to work more efficiently with [MaduChat](https://github.com/M
      ```bash
      export PATH="$PATH:~/maduchat"
      ```
-    #### On Wíndows
+    #### On Windows
     - Search for "Environment Variables"
     - Add the outputfile to your PATH
