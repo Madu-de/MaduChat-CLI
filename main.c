@@ -34,7 +34,11 @@ char* get_config_path() {
 
   struct stat st = {0};
   if (stat(file, &st) == -1) {
+    #if defined(_WIN32)
+    mkdir(file);
+    #else
     mkdir(file, 0700);
+    #endif
   }
   strcat(file, fileName);
   return file;
