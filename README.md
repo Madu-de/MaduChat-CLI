@@ -15,7 +15,7 @@ I created this CLI to work more efficiently with [MaduChat](https://github.com/M
       echo $PATH > ~/path.txt
       ```
    - Move the outputfile to <code>~/maduchat/FILE_HERE</code>
-   - Add the outputfile to your PATH
+   - Add the outputfile to your PATH (To use it after reopen the terminal, you have to add this at the bottom of your ~/.profile file)
      ```bash
      export PATH="$PATH:~/maduchat"
      ```
