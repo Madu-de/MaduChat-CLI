@@ -69,6 +69,7 @@ void input_is_wrong_message()  {
   printf("    maduchat watch " ANSI_COLOR_GREEN "//Watches all changes in the maduchat root path" ANSI_COLOR_RESET "\n");
   printf("    maduchat code [path] " ANSI_COLOR_GREEN "//Opens MaduChat in Visual Studio Code. With path, you can open specific files or directorys (Based on the maduchat root directory)" ANSI_COLOR_RESET "\n");
   printf("    maduchat config root-path [value] " ANSI_COLOR_GREEN "//Sets config settings" ANSI_COLOR_RESET "\n");
+  printf("    maduchat exec [..command] " ANSI_COLOR_GREEN "//Execute command on root path" ANSI_COLOR_RESET "\n");
 }
 
 void execute_on_root(char *command) {
@@ -130,6 +131,19 @@ void code(char *path) {
   execute_on_root(cmd);
 }
 
+void exec(int argc, char** argv) {
+  char* cmd = malloc(argc);
+  printf("%d\n", argc);
+  for (int i = 2; i < argc; i++) {
+    char* cmdArgument = malloc(strlen(argv[i]) + 1);
+    strcpy(cmdArgument, argv[i]);
+    strcat(cmdArgument, " ");
+    strcat(cmd, cmdArgument);
+    free(cmdArgument);
+  }
+  execute_on_root(cmd);
+  free(cmd);
+}
 
 //////////////////////////////////////////////////////////////
 // main
@@ -151,6 +165,11 @@ int main(int argc, char** argv) {
     if (successfull) {
       return 0;
     }
+  }
+
+  if (argc > 2 && 0 == strcmp(argv[1], "exec")) {
+    exec(argc, argv);
+    return 0;
   }
 
   if (argc >= 2 && 0 == strcmp(argv[1], "code")) {
