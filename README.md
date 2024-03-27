@@ -9,7 +9,7 @@ I created this CLI to work more efficiently with [MaduChat](https://github.com/M
    gcc main.c -o maduchat
    ```
 2. Add the outputfile to your PATH
-    #### On Linux
+    #### On Linux (First method)
     - Backup your PATH
       ```bash
       echo $PATH > ~/path.txt
@@ -19,6 +19,8 @@ I created this CLI to work more efficiently with [MaduChat](https://github.com/M
      ```bash
      export PATH="$PATH:~/maduchat"
      ```
+    #### On Linux (Second method)
+    - Add the binary file to <code>/bin</code>
     #### On Windows
     - Search for "Environment Variables"
     - Add the outputfile to your PATH
